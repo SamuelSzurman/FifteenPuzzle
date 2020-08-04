@@ -6,11 +6,9 @@ import javax.swing.*;
 import java.util.*;
 
 public class GameBoard extends JPanel{
-    //board
-    final private int boardX = 0;
-    final private int boardY = 100;
-    final private int boardSize = 300;
-    final private int margin = 25;
+    //states
+    private boolean gameOver;
+    private boolean isPaused;
 
     //title label
     final private int titleX = 0;
@@ -23,12 +21,17 @@ public class GameBoard extends JPanel{
     final private int timerY = 100;
     final private int timerWidth = 200;
     final private int timerHeight = 50;
+    private String time;
+    private int minutes;
+    private int seconds;
+    private java.util.Timer timer;
 
     //moves label
     final private int movesX = 400;
     final private int movesY = 200;
     final private int movesWidth = 200;
     final private int movesHeight = 50;
+    private int moves;
 
     //pause button
     final private int pauseX = 400;
@@ -42,11 +45,11 @@ public class GameBoard extends JPanel{
     final private int resetWidth = 200;
     final private int resetHeight = 50;
 
-    private Font titleFont = new Font("SansSerif", Font.BOLD, 50);
-    private Font tileFont = new Font("SansSerif", Font.BOLD, 20);
-    private Font pauseFont = new Font("SansSerif", Font.PLAIN, 40);
-    private Font informationFont = new Font("SansSerif", Font.BOLD, 20);
-    private Font victoryFont = new Font("SansSerif", Font.BOLD, 30);
+    //board
+    final private int boardX = 0;
+    final private int boardY = 100;
+    final private int boardSize = 300;
+    final private int margin = 25;
 
     //tiles
     private int[] tiles;
@@ -54,28 +57,23 @@ public class GameBoard extends JPanel{
     private int tileSize;
     private int blankPos;
     private int swapPos = -1;
+    private final Random RANDOM = new Random();
 
-    //time
-    private String time;
-    private int minutes;
-    private int seconds;
-
-    //
-    private int moves;
-    private int animationMove;
-
+    //animation
     private enum Direction{
         LEFT, RIGHT, UP, DOWN;
     }
     private Direction direction;
+    private int animationMove;
     private boolean isMoving = false;
-
-    private boolean gameOver;
-    private boolean isPaused;
-
-    private final Random RANDOM = new Random();
     private javax.swing.Timer animation;
-    private java.util.Timer timer;
+
+    //fonts
+    private Font titleFont = new Font("SansSerif", Font.BOLD, 50);
+    private Font tileFont = new Font("SansSerif", Font.BOLD, 20);
+    private Font pauseFont = new Font("SansSerif", Font.PLAIN, 40);
+    private Font informationFont = new Font("SansSerif", Font.BOLD, 20);
+    private Font victoryFont = new Font("SansSerif", Font.BOLD, 30);
 
     GameBoard(){
         setPreferredSize(new Dimension(600,600));
@@ -176,6 +174,7 @@ public class GameBoard extends JPanel{
         moves = 0;
         repaint();
 
+        //states update
         gameOver = false;
         isPaused = false;
     }
