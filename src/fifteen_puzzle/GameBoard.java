@@ -61,10 +61,9 @@ public class GameBoard extends JPanel{
     private int minutes;
     private int seconds;
 
+    //
     private int moves;
     private int animationMove;
-
-    //private BufferedImage frame;
 
     private enum Direction{
         LEFT, RIGHT, UP, DOWN;
