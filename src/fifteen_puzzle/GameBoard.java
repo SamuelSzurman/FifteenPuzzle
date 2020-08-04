@@ -160,7 +160,7 @@ public class GameBoard extends JPanel{
     }
 
     private void reset(){
-        //aktualizowanie planszy
+        //board update
         tileSize = boardSize / dimension;
         blankPos = dimension*dimension - 1;
         tiles = new int[dimension*dimension];
@@ -169,11 +169,11 @@ public class GameBoard extends JPanel{
         }
         shuffle();
 
-        //aktualizowanie stopera
+        //timer update
         timer.cancel();
         setTimer();
 
-        //aktualizowanie licznika ruchów
+        //moves counter update
         moves = 0;
         repaint();
 
