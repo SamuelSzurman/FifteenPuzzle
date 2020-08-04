@@ -1,5 +1,4 @@
 package fifteen_puzzle;
-
 import javax.swing.*;
 import java.awt.*;
 
