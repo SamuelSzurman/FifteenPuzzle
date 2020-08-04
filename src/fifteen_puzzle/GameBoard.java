@@ -62,7 +62,7 @@ public class GameBoard extends JPanel{
     private int seconds;
 
     private int moves;
-    private int move = 5;
+    private int animationMove;
 
     //private BufferedImage frame;
 
@@ -183,14 +183,14 @@ public class GameBoard extends JPanel{
     }
 
     private void setAnimation(){
-        move = 0;
+        animationMove = 0;
         animation = new javax.swing.Timer(10, (e) ->{
             isMoving = true;
-            move += 5;
+            animationMove += 5;
             repaint();
-            if(move == tileSize){
+            if(animationMove == tileSize){
                 animation.stop();
-                move = 0;
+                animationMove = 0;
                 int temp = tiles[swapPos];
                 tiles[swapPos] = tiles[blankPos];
                 tiles[blankPos] = temp;
@@ -328,16 +328,16 @@ public class GameBoard extends JPanel{
                     if((index == swapPos)) {
                         switch (direction) {
                             case UP:
-                                y -= move;
+                                y -= animationMove;
                                 break;
                             case DOWN:
-                                y += move;
+                                y += animationMove;
                                 break;
                             case RIGHT:
-                                x += move;
+                                x += animationMove;
                                 break;
                             case LEFT:
-                                x -= move;
+                                x -= animationMove;
                                 break;
                         }
                     }
