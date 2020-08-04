@@ -203,7 +203,6 @@ public class GameBoard extends JPanel{
     }
 
     private void setTimer(){
-        //time = "czas: 00:00";
         seconds = 0;
         minutes = 0;
         timer = new java.util.Timer();
@@ -211,7 +210,7 @@ public class GameBoard extends JPanel{
             @Override
             public void run() {
                 if(!isPaused && !gameOver){
-                    time = "czas: ";
+                    time = "Time: ";
                     if(seconds == 60){
                         seconds = 0;
                         minutes++;
@@ -258,7 +257,7 @@ public class GameBoard extends JPanel{
         g2D.fillRoundRect(0, 100, dimension*tileSize + 2*margin, dimension*tileSize + 2*margin, 20, 20);
         g2D.setColor(Color.WHITE);
         g2D.setFont(pauseFont);
-        drawCenteredString(g2D,"P A U Z A", 0, 100, dimension*tileSize + 2*margin, dimension*tileSize + 2*margin);
+        drawCenteredString(g2D,"P A U S E", 0, 100, dimension*tileSize + 2*margin, dimension*tileSize + 2*margin);
     }
 
     private void drawVictoryScreen(Graphics2D g2D){
@@ -266,7 +265,7 @@ public class GameBoard extends JPanel{
         g2D.fillRoundRect(0, 100, dimension*tileSize + 2*margin, dimension*tileSize + 2*margin, 20, 20);
         g2D.setColor(Color.YELLOW);
         g2D.setFont(victoryFont);
-        drawCenteredString(g2D,"Z W Y C I Ę S T W O", 0, 100, dimension*tileSize + 2*margin, dimension*tileSize + 2*margin);
+        drawCenteredString(g2D,"V I C T O R Y", 0, 100, dimension*tileSize + 2*margin, dimension*tileSize + 2*margin);
     }
 
     private void drawTimer(Graphics2D g2D){
@@ -282,7 +281,7 @@ public class GameBoard extends JPanel{
         g2D.fillRoundRect(movesX, movesY, movesWidth, movesHeight, 20, 20);
         g2D.setColor(Color.BLACK);
         g2D.setFont(informationFont);
-        drawCenteredString(g2D, "liczba ruchów: " + String.valueOf(moves), movesX, movesY, movesWidth, movesHeight);
+        drawCenteredString(g2D, "Moves: " + String.valueOf(moves), movesX, movesY, movesWidth, movesHeight);
     }
 
     private void drawReset(Graphics2D g2D){
@@ -290,7 +289,7 @@ public class GameBoard extends JPanel{
         g2D.fillRoundRect(resetX, resetY, resetWidth, resetHeight, 20, 20);
         g2D.setColor(Color.BLACK);
         g2D.setFont(informationFont);
-        drawCenteredString(g2D, "reset", resetX, resetY, resetWidth, resetHeight);
+        drawCenteredString(g2D, "Reset", resetX, resetY, resetWidth, resetHeight);
     }
 
     private void drawPause(Graphics2D g2D){
@@ -298,7 +297,7 @@ public class GameBoard extends JPanel{
         g2D.fillRoundRect(pauseX, pauseY, pauseWidth, pauseHeight, 20, 20);
         g2D.setColor(Color.BLACK);
         g2D.setFont(informationFont);
-        drawCenteredString(g2D, "pauza", pauseX, pauseY, pauseWidth, pauseHeight);
+        drawCenteredString(g2D, "Pause", pauseX, pauseY, pauseWidth, pauseHeight);
     }
 
     private void drawFrame(Graphics2D g2D){
