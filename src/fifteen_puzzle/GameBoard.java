@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.util.*;
 
 public class GameBoard extends JPanel{
+    //komentarz
     //board
     final private int boardX = 0;
     final private int boardY = 100;
